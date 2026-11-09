@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>sakurada8993</title>
+
+<style>
+
+body{
+
+zoom:0.9;
+
+    background:linear-gradient(
+        #88cbff,
+        #2d6dde
+    );
+
+    font-family:"Segoe UI",sans-serif;
+
+    margin:0;
+
+    min-height:100vh;
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+background:
+repeating-linear-gradient(
+0deg,
+rgba(0,0,0,0.03),
+rgba(0,0,0,0.03) 1px,
+transparent 2px,
+transparent 3px
+);
+
+
+}
+
+
+.window{
+
+width:800px;
+
+max-width:90%;
+
+margin:50px auto;
+
+background:
+linear-gradient(
+#ffffff,
+#f5f7fd
+);
+
+border:
+1px solid #7aa7f7;
+overflow:hidden;
+
+box-shadow:
+0 0 0 1px #8aa9e6,
+0 8px 25px rgba(0,0,0,.25);
+
+animation:
+floatwindow 6s ease-in-out infinite;
+
+}
+
+@keyframes floatwindow{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-5px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.content{
+
+padding:25px;
+background:white;
+
+}
+
+.titlebar{
+
+display:flex;
+align-items:center;
+
+padding:0 10px;
+
+font-size:14px;
+
+font-weight:bold;
+
+}
+}
+
+/* ---------- 雲 ---------- */
+
+.cloud{
+    position:fixed;
+
+    background:white;
+
+    border-radius:100px;
+
+    opacity:.5;
+
+    filter:blur(5px);
+
+    z-index:-1;
+}
+
+.cloud::before,
+.cloud::after{
+
+    content:"";
+
+    position:absolute;
+
+    background:white;
+
+    border-radius:50%;
+}
+
+.cloud1{
+
+    width:180px;
+    height:60px;
+
+    top:80px;
+    left:100px;
+}
+
+.cloud1::before{
+
+    width:80px;
+    height:80px;
+
+    left:20px;
+    top:-30px;
+}
+
+.cloud1::after{
+
+    width:70px;
+    height:70px;
+
+    right:20px;
+    top:-20px;
+}
+
+.cloud2{
+
+    width:250px;
+    height:70px;
+
+    top:220px;
+    right:100px;
+}
+
+.cloud2::before{
+
+    width:90px;
+    height:90px;
+
+    top:-35px;
+    left:30px;
+}
+
+.cloud2::after{
+
+    width:80px;
+    height:80px;
+
+    top:-20px;
+    right:40px;
+}
+
+.cloud3{
+
+    width:150px;
+    height:50px;
+
+    bottom:120px;
+    left:250px;
+}
+
+/* ---------- シャボン玉 ---------- */
+
+.bubble{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle at top left,
+        rgba(255,255,255,.9),
+        rgba(255,255,255,.1)
+    );
+
+    border:
+    1px solid rgba(255,255,255,.5);
+
+    box-shadow:
+    inset 0 0 20px rgba(255,255,255,.5);
+
+    animation:
+    float 12s infinite ease-in-out;
+
+    pointer-events:none;
+}
+
+.bubble1{
+
+    width:50px;
+    height:50px;
+
+    left:15%;
+    top:65%;
+}
+
+.bubble2{
+
+    width:80px;
+    height:80px;
+
+    top:20%;
+    right:15%;
+}
+
+.bubble3{
+
+    width:35px;
+    height:35px;
+
+    bottom:18%;
+    right:30%;
+}
+
+.bubble4{
+
+    width:60px;
+    height:60px;
+
+    top:45%;
+    left:8%;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.dream{
+
+text-align:center;
+
+color:#6a7ca6;
+
+font-style:italic;
+
+margin-bottom:25px;
+
+letter-spacing:1px;
+
+}
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:20px;
+
+max-width:700px;
+
+margin:auto;
+
+}
+.art{
+
+aspect-ratio:1/1;
+
+overflow:hidden;
+
+border-radius:12px;
+
+background:black;
+
+}
+.art img{
+
+width:100%;
+
+height:100%;
+
+object-fit:contain;
+
+display:block;
+
+background:black;
+
+}
+.art:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+0 0 25px rgba(255,255,255,.8);
+
+}
+
+.note{
+
+padding:15px;
+
+border-radius:12px;
+
+background:white;
+
+border:
+1px solid #c1d4ff;
+
+}
+
+.winbuttons{
+
+margin-left:auto;
+
+display:flex;
+
+gap:2px;
+
+}
+
+.winbtn{
+
+width:28px;
+
+height:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:11px;
+
+border-radius:2px;
+
+background:
+rgba(255,255,255,.2);
+
+}
+
+.closebtn:hover{
+
+background:#e81123;
+
+}
+.bgwindow{
+
+position:fixed;
+
+background:
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(4px);
+
+border:
+1px solid rgba(255,255,255,.3);
+
+border-radius:8px;
+
+z-index:-2;
+
+}
+
+.bgwindow::before{
+
+content:"";
+
+display:block;
+
+height:24px;
+
+background:
+linear-gradient(
+#8ecfff,
+#3c7ff5
+);
+
+border-radius:8px 8px 0 0;
+
+}
+
+.bg1{
+
+width:280px;
+height:180px;
+
+left:60px;
+top:150px;
+
+transform:rotate(-8deg);
+
+}
+
+.bg2{
+
+width:320px;
+height:220px;
+
+right:80px;
+top:120px;
+
+transform:rotate(7deg);
+
+}
+
+.bg3{
+
+width:240px;
+height:160px;
+
+left:180px;
+bottom:80px;
+
+transform:rotate(-4deg);
+
+}
+
+.titlebar{
+
+display:flex;
+align-items:center;
+
+}
+
+.earth{
+
+position:fixed;
+
+right:-120px;
+
+bottom:-120px;
+
+width:420px;
+
+height:420px;
+
+border-radius:50%;
+
+z-index:-3;
+
+opacity:.85;
+
+overflow:hidden;
+
+animation:
+earthSpin 60s linear infinite;
+
+/* 海 */
+
+background:
+radial-gradient(
+circle at 30% 25%,
+rgba(255,255,255,.95),
+rgba(255,255,255,.2) 18%,
+transparent 25%
+),
+
+radial-gradient(
+circle at center,
+#67e9ff,
+#1694e7 50%,
+#0668bf 100%
+);
+
+box-shadow:
+0 0 80px rgba(100,220,255,.6);
+
+}
+background:
+
+radial-gradient(
+circle at 30% 30%,
+rgba(255,255,255,.9),
+rgba(255,255,255,.3) 25%,
+transparent 30%
+),
+
+radial-gradient(
+circle at 65% 60%,
+#8ee96b,
+#49ae4d 30%,
+transparent 35%
+),
+
+radial-gradient(
+circle at 40% 45%,
+#7fe4ff,
+#2899e6 70%
+);
+
+box-shadow:
+0 0 80px rgba(120,220,255,.5);
+
+}
+
+
+.earth::after{
+
+content:"";
+
+position:absolute;
+
+width:520px;
+
+height:90px;
+
+border:
+
+4px solid rgba(255,255,255,.4);
+
+border-radius:50%;
+
+top:170px;
+
+left:-50px;
+
+transform:rotate(-15deg);
+
+}
+
+.earth::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+circle at 65% 45%,
+#85ef7a 0 12%,
+transparent 13%
+),
+
+radial-gradient(
+circle at 35% 60%,
+#7edf72 0 16%,
+transparent 18%
+),
+
+radial-gradient(
+circle at 55% 75%,
+#83ea7c 0 10%,
+transparent 11%
+);
+
+animation:
+earthSpin 40s linear infinite reverse;
+
+}
+
+.ring{
+
+position:absolute;
+
+width:520px;
+
+height:110px;
+
+left:-50px;
+
+top:155px;
+
+border:
+
+4px solid rgba(255,255,255,.55);
+
+border-radius:50%;
+
+transform:rotate(-18deg);
+
+box-shadow:
+0 0 10px #fff,
+0 0 20px #7fdfff,
+0 0 40px #52d8ff;
+
+animation:
+ringGlow 4s ease-in-out infinite;
+
+}
+
+@keyframes earthSpin{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes ringGlow{
+
+0%{
+
+opacity:.4;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:.4;
+
+}
+
+}
+
+.earth-glow{
+
+position:fixed;
+
+right:20px;
+
+bottom:20px;
+
+width:250px;
+
+height:250px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,255,255,.8),
+transparent 70%
+);
+
+z-index:-4;
+
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="bgwindow bg1"></div>
+<div class="bgwindow bg2"></div>
+<div class="bgwindow bg3"></div>
+
+<div class="earth-glow"></div>
+
+<div class="earth">
+    <div class="ring"></div>
+</div>
+
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
+
+<div class="bubble bubble1"></div>
+<div class="bubble bubble2"></div>
+<div class="bubble bubble3"></div>
+<div class="bubble bubble4"></div>
+
+<div class="window">
+
+<div class="titlebar">
+
+<span>💾 sakurada8993.exe</span>
+
+<div class="winbuttons">
+
+<div class="winbtn">－</div>
+<div class="winbtn">□</div>
+<div class="winbtn closebtn">×</div>
+
+</div>
+
+</div>
+<div class="content">
+
+<p style="text-align:center;color:#6d7db1;font-style:italic;">
+maybe you've been here before...
+</p>
+
+<h2>⭐ My Profile</h2>
+
+<p>
+
+NAME👮:
+sakerada8993
+
+<br><br>
+
+BD🎂:
+10-31-2006
+
+<br><br>
+
+TOOL💻:
+3D Modeling App,
+Womp 3D,
+ibisPaint
+
+
+<br><br>
+
+JOB👓:
+university student,offeceworker
+
+<br><br>
+
+MY WORKS THEME🖌
+Dreamcore
++
+Frutiger Aero
++
+Windows 7
++
+And More
+
+</p>
+
+<br>
+
+</div>
+
+
+<h2>⭐ My Art Works</h2>
+
+
+<div class="gallery">
+
+<div class="art">
+<img src="art1.png"
+onclick="showImage(this.src)">
+</div>
+
+<div class="art">
+<img src="art2.png"
+onclick="showImage(this.src)">
+</div>
+
+<div class="art">
+<img src="art3.png"
+onclick="showImage(this.src)">
+</div>
+
+<div class="art">
+<img src="art4.png"
+onclick="showImage(this.src)">
+</div>
+
+</div>
+<br>
+
+<h2>⭐ P.S.</h2>
+
+<div class="note">
+
+こんにちは！sakurada8993です。
+
+<br><br>
+
+Hi! This is sakurada8993.
+
+<br><br>
+
+</div>
+
+<br>
+
+<h2>⭐ Links</h2>
+
+<p>
+<a href="https://www.instagram.com/sakurada.8993?rpxt=MTA3cjFkbnE2cnpkZg%3D%3D&utm_source=qr" target="_blank" rel="noopener">🌐 Instagram</a>
+
+</p>
+
+
+<p id="secret" style="cursor:pointer;color:#7d8cb7;">
+☆
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+const messages = [
+
+"welcome back.",
+
+"the sky feels familiar.",
+
+"you found the hidden star."
+
+];
+
+document.getElementById("secret")
+.onclick = function(){
+
+const random =
+Math.floor(
+Math.random()*messages.length
+);
+
+alert(messages[random]);
+
+};
+
+function showImage(src){
+
+window.open(src);
+
+}
+
+</script>
+
+
+</body>
+</html>
